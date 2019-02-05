@@ -83,7 +83,8 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
 
-  statsRoot: resolveApp('../'),
+  //assetsRoot: resolveApp('assets/'),
+  //assetsBundles: resolveApp('assets/bundles/'),
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

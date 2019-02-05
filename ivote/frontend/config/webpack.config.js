@@ -141,8 +141,10 @@ module.exports = function(webpackEnv) {
         require.resolve('webpack-dev-server/client') + '?http://localhost:3000',
       isEnvDevelopment &&
         require.resolve('webpack/hot/dev-server'),
-      //isEnvDevelopment &&
-        //require.resolve('react-dev-utils/webpackHotDevClient'),
+      // isEnvDevelopment &&
+      //   require.resolve('webpack/hot/only-dev-server'),
+      // isEnvDevelopment &&
+      //   require.resolve('react-dev-utils/webpackHotDevClient'),
       // Finally, this is your app's code:
       paths.appIndexJs,
       // We include the app code last so that if there is a runtime error during
@@ -151,7 +153,7 @@ module.exports = function(webpackEnv) {
     ].filter(Boolean),
     output: {
       // The build folder.
-      path: isEnvProduction ? paths.appBuild : undefined,
+      path: isEnvProduction ? paths.appBuild : paths.appBuild,
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.
@@ -600,7 +602,9 @@ module.exports = function(webpackEnv) {
           formatter: typescriptFormatter,
         }),
         isEnvDevelopment &&
-          new BundleTracker({path: paths.statsRoot, filename: 'webpack-stats.dev.json'}),
+          new BundleTracker({path: paths.appBuild, filename: 'webpack-stats.dev.json'}),
+        isEnvProduction &&
+          new BundleTracker({path: paths.appBuild, filename: 'webpack-stats.prod.json'}),
 
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.

@@ -122,16 +122,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "assets"),
-]
-
 #INTEGRATING REACT WITH DJANGO USING WEBPACK LOADER
+#https://www.npmjs.com/package/webpack-bundle-tracker
+#https://github.com/owais/django-webpack-loader
+# STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+# STATICFILES_DIRS = [
+#      os.path.join(BASE_DIR, "frontend/build/static"),
+# ]
+
 WEBPACK_LOADER = {
     'DEFAULT': {
-            'BUNDLE_DIR_NAME': 'bundles/',
-            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json'),
+            # 'BUNDLE_DIR_NAME': './build/static/',
+            'STATS_FILE': os.path.join(BASE_DIR, 'frontend/build/webpack-stats.dev.json'),
         }
 }
