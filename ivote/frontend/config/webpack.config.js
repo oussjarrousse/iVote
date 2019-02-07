@@ -602,9 +602,9 @@ module.exports = function(webpackEnv) {
           formatter: typescriptFormatter,
         }),
         isEnvDevelopment &&
-          new BundleTracker({path: paths.appBuild, filename: 'webpack-stats.dev.json'}),
+          new BundleTracker({path: paths.appBuild, filename: 'webpack-stats-dev.json'}),
         isEnvProduction &&
-          new BundleTracker({path: paths.appBuild, filename: 'webpack-stats.prod.json'}),
+          new BundleTracker({path: paths.appBuild, filename: 'webpack-stats-prod.json'}),
 
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
