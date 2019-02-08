@@ -125,14 +125,13 @@ STATIC_URL = '/static/'
 #INTEGRATING REACT WITH DJANGO USING WEBPACK LOADER
 #https://www.npmjs.com/package/webpack-bundle-tracker
 #https://github.com/owais/django-webpack-loader
-# STATIC_ROOT = os.path.join(BASE_DIR,'static/')
-# STATICFILES_DIRS = [
-#      os.path.join(BASE_DIR, "frontend/build/static"),
-# ]
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+     os.path.join(BASE_DIR, "frontend/build/static"),
+]
 
 WEBPACK_LOADER = {
     'DEFAULT': {
-            #'BUNDLE_DIR_NAME': './build/static',
             'STATS_FILE': os.path.join(BASE_DIR, 'frontend/build/webpack-stats-dev.json'),
         }
 }
@@ -140,7 +139,6 @@ WEBPACK_LOADER = {
 if not DEBUG:
     WEBPACK_LOADER = {
         'DEFAULT': {
-            #'BUNDLE_DIR_NAME': './build/static',
             'STATS_FILE': os.path.join(BASE_DIR, 'frontend/build/webpack-stats-prod.json'),
         }
     }
